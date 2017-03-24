@@ -5,10 +5,23 @@
 </template>
 
 <script>
-
+import BScroll from 'better-scroll'
 export default {
     methods:{
         scorllTop(){ 
+            let doc = document.documentElement.scrollTop || document.body.scrollTop;
+            if(doc == 0) return;
+            clearInterval(timer);  
+            let timer = setInterval(function(){
+                let osTop = document.documentElement.scrollTop || document.body.scrollTop;  
+                let spd = Math.floor((-osTop) / 5);  
+                document.documentElement.scrollTop = osTop + spd;  
+                document.body.scrollTop = osTop + spd;  
+  
+              if(osTop == 0){  
+                clearInterval(timer);  
+              }  
+            },30)
         }
     }
 }
