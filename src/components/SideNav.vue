@@ -1,34 +1,39 @@
 <template>
     <div class="side-nav" :class="MenuStatus? 'is-open':'is-fold'">
         <div class="menu-btn menu-btn-outside" @click="Switch">
-            <i class="iconfont icon-menu"></i><span>Menu</span>
+            <i class="icon icon-menu"></i><span>Menu</span>
         </div>
         <div class="side-menu">
             <div class="menu-btn menu-btn-inside"  @click="Switch">
-                <i class="iconfont icon-menu"></i><span>Menu</span>
+                <i class="icon icon-menu"></i><span>Menu</span>
             </div>
-            <div class="link-group">
+            <div class="link-group" @click="Switch">
                 <router-link class="link" to="/" exact><i class="icon icon-home"></i>Home</router-link>
                 <router-link class="link" to="/Article"><i class="icon icon-article"></i>Article</router-link>
                 <router-link class="link" to="/Photo"><i class="icon icon-camera"></i>Photo</router-link>
                 <router-link class="link" to="/News"><i class="icon icon-news"></i>News</router-link>
+            </div>
+            <div class="user-group">
+                <div class="sign-btn-group">
+                    <router-link class="sign-btn blue-btn" :to="{path:'Sign',query:{type:'login'}}" @click.native="Switch">Sign in</router-link>
+                    <router-link class="sign-btn green-btn" :to="{path:'Sign',query:{type:'register'}}" @click.native="Switch">Sign up</router-link>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-// import Store from '@/store'  
+import Store from '@/store'  
 import {mapState} from 'vuex'
 export default {
     data(){
         return{
-           
         }
     },
     methods:{
         Switch(){
-            this.$store.commit('MenuStatusSwitch')
+            Store.commit('menuSwitch')
         },
     },
     computed: {
@@ -40,31 +45,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.test-menu{
-    position:fixed;
-    right:-200px;
-    top:50px;
-    width:30px;
-    height:40px;
-    background:#000;
-}
 .side-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    bottom:0;
-    width:240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    height: 100vh;
     background:#fff;
     box-shadow: 2px 0 35px rgba(0,0,0,.7);
     visibility: visible;
     transition: transform .5s ease-in-out;  
-    will-change:transform;
+    // will-change:transform;
     z-index:100;
     &.is-outside{
         transform: translateZ(0);
     }
     &.is-inside{
-        transform: translate3d(-120%,0,0);
+        transform: translate3d(-240px,0,0);
     }
     .menu-btn{
         position: absolute;
@@ -76,9 +74,15 @@ export default {
         border-radius: 4px;
         cursor: pointer;
         visibility: visible;
-        // transform: translate3d(100px,0,0);
-        transition: all .5s;
+        transition: all .5s ease-in-out;
         z-index: 99; 
+        .icon{
+            margin-right: 5px;
+            font-size: 20px;
+            position: relative;
+            vertical-align: middle;
+            top: -1px;
+        }
     }
     .menu-btn-outside{
         font-size: 15px;
@@ -94,6 +98,41 @@ export default {
         font-size: 18px;
         color: #3498db;
         text-shadow: 1px 1px 3px rgba(0,0,0,.86);
+    }
+    .user-group{
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        opacity:0;
+        transform:translate3d(0,50px,0)
+    }
+    .sign-btn{
+        color: #fffffb;
+        width: 150px;
+        margin: 15px auto 0;
+        padding: 5px 0;
+        border: none;
+        display: block;
+        background-color: #95a5a6;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 1px 1px 3px rgba(0,0,0,.86);
+        transition: background-color .2s;
+        &:active{box-shadow: inset 0 2px 2px rgba(0,0,0,.36);}
+        &.blue-btn{
+            background-color: #3498db;
+            &:active{ background-color: #258cd1; }
+        }
+        &.green-btn{
+            background-color: #00b281;
+            &:active{background-color: #00b281;}
+        }
     }
 }
 .side-menu{
@@ -170,12 +209,17 @@ export default {
         opacity: 1;
         transition: transform .6s cubic-bezier(.175,.885,.32,1.275) .6s,opacity .6s cubic-bezier(.175,.885,.32,1.275) .6s;
     }
+    .user-group{
+        transform: translateZ(0);
+        opacity: 1;
+        transition: transform .8s .4s,opacity .8s .4s;
+    }
 }
 //隐藏状态
 .side-nav.is-fold{
-    transform: translate3d(-110%,0,0);
+    transform: translate3d(-240px,0,0);
     .menu-btn{
-        transform: translate3d(120px,0,0);
+        transform: translate3d(140px,0,0);
     }
     .menu-btn-inside{
         visibility:hidden;

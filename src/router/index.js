@@ -5,6 +5,7 @@ import Home from '@/views/Home'
 import Article from '@/views/Article'
 import Photo from '@/views/Photo'
 import News from '@/views/News'
+import Sign from '@/views/Sign'
 
 Vue.use(VueRouter)
 
@@ -16,5 +17,6 @@ export default new VueRouter({
     {path: '/Article',component: Article},
     {path: '/Photo',component: Photo},
     {path: '/News',component: News},
+    {path: '/Sign',component: Sign},
   ]
 })

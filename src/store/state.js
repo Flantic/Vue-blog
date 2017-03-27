@@ -1,5 +1,6 @@
 const state = {
-    MenuStatus: false
+    MenuStatus: false,
+    MaskStatus:false
 }
 
 export default state

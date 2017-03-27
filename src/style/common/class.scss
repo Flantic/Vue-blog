@@ -193,17 +193,6 @@ a.reset-a {
     float: right;
 }
 
-.clear {
-    &:before,
-    &:after {
-        content: " ";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
-}
-
 
 /*
  * 组件类
@@ -218,16 +207,16 @@ a.reset-a {
 //     }
 // }
 
-.striped {
-    li:nth-child(2n), tr:nth-child(2n) {
-        background-color: #eef2f4;
-    }
-}
-.striped-odd {
-    li:nth-child(2n+1), tr:nth-child(2n+1) {
-        background-color: #eef2f4;
-    }
-}
+// .striped {
+//     li:nth-child(2n), tr:nth-child(2n) {
+//         background-color: #eef2f4;
+//     }
+// }
+// .striped-odd {
+//     li:nth-child(2n+1), tr:nth-child(2n+1) {
+//         background-color: #eef2f4;
+//     }
+// }
 
 /*
  * 主题类
@@ -439,12 +428,12 @@ a.reset-a {
      *zoom: 1;
      /*IE/7/6*/
  }
- 
+ //原子类
  .fl {
      float: left;
  }
  
- .fl {
+ .fr {
      float: right;
  }
  
@@ -455,8 +444,10 @@ a.reset-a {
  .tr {
      text-align: right;
  }
+
+ .tl{text-align: left;}
  
- .text-ellipsis {
+ .t-ov-h {
      overflow: hidden;
      text-overflow: ellipsis;
      white-space: nowrap;
@@ -465,3 +456,12 @@ a.reset-a {
  .ov-h {
      overflow: hidden;
  }
+ .mt10{ margin-top: 10px !important; }
+ .mt15{ margin-top: 10px !important; }
+ .mt20{ margin-top: 10px !important; }
+ .mt30{ margin-top: 10px !important; }
+
+ .mb10{ margin-bottom: 10px !important; }
+ .mb15{ margin-bottom: 10px !important; }
+ .mb20{ margin-bottom: 10px !important; }
+ .mb30{ margin-bottom: 10px !important; }

@@ -22,7 +22,17 @@ time, mark, audio, video, input {
     font-weight: normal;
     vertical-align: baseline;
 }
-
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+a, a:active, a:focus, a:hover, button, button:active, 
+button:focus, button:hover, input, input:active, input:focus, 
+input:hover, select, select:active, select:focus, select:hover, 
+textarea, textarea:active, textarea:focus, textarea:hover {
+    outline: none;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, menu, nav, section {
