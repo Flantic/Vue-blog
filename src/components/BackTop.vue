@@ -1,5 +1,5 @@
 <template>
-    <div class="back-top" @click='scorllTop'>
+    <div class="back-top" @click='scorllTop' v-show="btnStatus">
         <i class="icon"></i>
     </div>
 </template>
@@ -7,6 +7,21 @@
 <script>
 import BScroll from 'better-scroll'
 export default {
+    mounted(){
+        window.onscroll = ()=>{
+            let scroolTop = document.documentElement.scrollTop || document.body.scrollTop;
+            if(scroolTop>=500){
+                this.btnStatus = true;
+            }else{
+                this.btnStatus = false;
+            }
+        }
+    },
+    data(){
+        return{
+           btnStatus:false 
+        }
+    },
     methods:{
         scorllTop(){ 
             let doc = document.documentElement.scrollTop || document.body.scrollTop;

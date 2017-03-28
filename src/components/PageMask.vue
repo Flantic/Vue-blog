@@ -1,5 +1,5 @@
 <template>
-    <div class="page-mask" v-show="MaskStatus || MaskStatus" @click="Switch"></div>
+        <div class="page-mask" v-show="MenuStatus || MaskStatus" @click="Switch"></div>
 </template>
 
 <script>

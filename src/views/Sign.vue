@@ -1,7 +1,10 @@
 <template>
     <div class="sign-view">
         <div class="sign-wrap" :class="{'login':signStatus==1}">
-            <div class="switch-type-btn" @click="signStatusSwitch" ref="switchBtn"></div>
+            <div class="switch-type-btn" @click="signStatusSwitch" ref="switchBtn">
+                <router-link :to="{path:'Sign',query:{type:'login'}}" v-if="signStatus == 0"></router-link>
+                <router-link :to="{path:'Sign',query:{type:'register'}}" v-else></router-link>
+            </div>
             <div class="form-wrap">
                 <h3 v-if="signStatus == 0">Sign Up</h3>
                 <h3 v-else>Sign In</h3>
@@ -46,19 +49,22 @@
 <script>
 export default {
     mounted(){
-        //登陆注册页面识别
-        // if(this.$route.query == 'register'){
-        //     //规定注册页面自定义状态码为0
-        //     this.signStatus = 0
-        // }else{
-        //     //登陆状态码
-        //     this.signStatus = 1;
-        // }
     },
     data(){
         return {
             //登陆状态码 0为注册,1为登陆
-            signStatus:0
+            // signStatus:1,
+            formData:[
+            ]
+        }
+    },
+    computed:{
+        signStatus(){
+            if(this.$route.query.type == 'register'){
+                return 0;
+            }else{
+                return 1;
+            }
         }
     },
     methods:{
@@ -86,7 +92,16 @@ export default {
                 this.signStatus = newStatus
                 elem.classList.remove('cover');
             },400)
-
+        },
+    },
+    watch:{
+        $route(){
+            if(this.$route.query.type == 'register'){
+                this.signStatus =0;
+            }else{
+               this.signStatus = 1;
+            }
+            console.log(this.$route.query)
         }
     }
 }
@@ -175,6 +190,14 @@ $SignUp:#00b281;
             width: 0;
             border-top: 800px solid $SignUp;
             border-left: 800px solid transparent;
+        }
+        a{ 
+            position:absolute; 
+            top:-28px;
+            left:-28px; 
+            display:block; 
+            width:28px; 
+            height:28px;
         }
     }
     .form-item{

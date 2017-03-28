@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "better-scroll": "^0.1.15",
+    "element-ui": "^1.2.5",
     "node-sass": "^4.5.1",
     "sass-loader": "^6.0.3",
     "vue": "^2.2.2",

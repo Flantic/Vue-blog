@@ -2,7 +2,9 @@
     <span>
         <SideNav></SideNav>
         <div class="container" :class="MenuStatus? 'offset':''" @click="Switch">
-            <router-view></router-view>
+            <transition name="fade" mode="out-in">
+                <router-view></router-view>
+            </transition>
         </div>
         <Page-Mask></Page-Mask>
     </span>
@@ -41,6 +43,12 @@ export default {
 .container.offset{
     transform: translate3d(240px,0,0);
 }
-body{ background:#666;}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+body{ background:#999;}
 </style>
 
