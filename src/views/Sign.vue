@@ -230,6 +230,7 @@ $SignUp:#00b281;
     .switch-type-btn{
         border-top-color: $SignIn;
         border-right-color: $SignIn;
+        background:#fff;
     }
     .sign-form button{
         background-color: $SignIn;
