@@ -49,6 +49,9 @@ export default {
 .fade-enter, .fade-leave-active {
   opacity: 0
 }
-body{ background:#999;}
+::selection{color:#fff;background:#262a30;}
+::-moz-selection{color:#fff;background:#262a30;}
+::-webkit-selection{color:#fff;background:#262a30;}
+body{ background:#f1f1f1;}
 </style>
 

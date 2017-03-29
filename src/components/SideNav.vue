@@ -1,5 +1,5 @@
 <template>
-    <div class="side-nav" :class="MenuStatus? 'is-open':'is-fold'">
+    <aside class="side-nav" :class="MenuStatus? 'is-open':'is-fold'">
         <div class="menu-btn menu-btn-outside" @click="Switch">
             <i class="icon icon-menu"></i><span>Menu</span>
         </div>
@@ -11,6 +11,7 @@
                 <router-link class="link" to="/" exact><i class="icon icon-home"></i>Home</router-link>
                 <router-link class="link" to="/Article"><i class="icon icon-article"></i>Article</router-link>
                 <router-link class="link" to="/Photo"><i class="icon icon-camera"></i>Photo</router-link>
+                <router-link class="link" to="/About"><i class="icon icon-camera"></i>About me</router-link>
                 <router-link class="link" to="/News"><i class="icon icon-news"></i>News</router-link>
             </div>
             <div class="user-group">
@@ -20,7 +21,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </aside>
 </template>
 
 <script>

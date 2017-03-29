@@ -1,5 +1,5 @@
 <template>
-    <div class="back-top" @click='scorllTop' v-show="btnStatus">
+    <div class="back-top animated" @click='scorllTop'  :class="btnStatus? 'fadeInUp':'fadeOutUp'">
         <i class="icon"></i>
     </div>
 </template>
@@ -43,6 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../style/animate.scss';
 .back-top{
     position:fixed;
     right:20px;
@@ -53,4 +54,5 @@ export default {
     border-radius:5px;
     cursor:pointer;
 }
+
 </style>

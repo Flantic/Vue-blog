@@ -1,9 +1,9 @@
 <template>
-    <div class="footer mt30">
+    <footer class="footer mt30">
         <div class="page-all">
             <h1>这是一个页脚</h1>
         </div>
-    </div>
+    </footer>
 </template>
 
 <script>
