@@ -1,5 +1,5 @@
 <template>
-    <span>
+    <span v-cloak>
         <SideNav></SideNav>
         <div class="container" :class="MenuStatus? 'offset':''" @click="Switch">
             <transition name="fade" mode="out-in">
@@ -31,6 +31,7 @@ export default {
 </script>
 <style lang="scss">
 @import './style/common/core';
+[v-cloak] { display: none } 
 .container{
     position:relative;
     display:flex;
@@ -53,5 +54,6 @@ export default {
 ::-moz-selection{color:#fff;background:#262a30;}
 ::-webkit-selection{color:#fff;background:#262a30;}
 body{ background:#f1f1f1;}
+.overflow{ overflow: hidden}
 </style>
 

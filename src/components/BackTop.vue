@@ -1,7 +1,13 @@
 <template>
-    <div class="back-top animated" @click='scorllTop'  :class="btnStatus? 'fadeInUp':'fadeOutUp'">
+<transition
+    enter-active-class="animated fadeInUp"
+    leave-active-class="animated fadeOutUp">
+    <div class="back-top " 
+        @click='scorllTop'  
+        v-if="btnStatus">
         <i class="icon"></i>
     </div>
+</transition>
 </template>
 
 <script>
@@ -47,7 +53,7 @@ export default {
 .back-top{
     position:fixed;
     right:20px;
-    bottom:20px;
+    bottom:40px;
     width:40px;
     height:40px;
     background:pink;

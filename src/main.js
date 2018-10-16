@@ -10,7 +10,7 @@ import 'element-ui/lib/theme-default/index.css'
 
 Vue.use(VueResource)
 Vue.use(ElementUI)
-console.log(ElementUI)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

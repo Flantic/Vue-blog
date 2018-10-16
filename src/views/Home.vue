@@ -24,6 +24,7 @@
             </el-col>
             <el-col :span="6" :offset="1" class="right-cont">
                 <section class="admin-info">
+                    <div class="admin-head"></div>
 
                 </section>
             </el-col>
@@ -39,6 +40,8 @@ import PageFooter from '@/components/Footer'
 import BScroll from 'better-scroll'
 export default {
     mounted(){
+        var utterThis = new window.SpeechSynthesisUtterance('没想到吧，我又回来啦！,而且我还会说English');
+        window.speechSynthesis.speak(utterThis);
     },  
     data(){
         return{
